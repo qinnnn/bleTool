@@ -136,152 +136,154 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _data$onLoad$onLoad$m;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = (_data$onLoad$onLoad$m = {
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-  data: function data() {
-    return {
-      searchState: false,
-      searchStateOne: false,
-      connectState: false,
-      inputValue: '',
-      devicesList: [],
-      storageList: [],
-      canvasWidth: 80,
-      canvasHeight: 80 };
 
-  },
-  onLoad: function onLoad() {
 
-  } }, _defineProperty(_data$onLoad$onLoad$m, "onLoad", function onLoad()
-{
-  this.BleTool.init();
-}), _defineProperty(_data$onLoad$onLoad$m, "methods",
-{
-  //断开连接
-  disconnect: function disconnect() {
-    var that = this;
-    this.BleTool.cancelBleConnect(function () {
-      that.connectState = false;
-    });
-  },
-  blueStart: function blueStart() {
-    var that = this;
-    this.searchStateOne = true;
-    if (that.searchState) {
-      uni.showToast({
-        title: '搜索中，请稍后',
-        icon: 'none' });
 
-      return false;
-    }
-    this.BleTool.getBleState(function (state) {
-      if (state) {
-        that.searchState = true;
-        that.BleTool.search(function (callback) {
-          console.log('回调callback', callback);
-          if (callback) {
-            uni.showToast({
-              title: '搜索完成',
-              icon: 'none' });
 
-            for (var i in callback.deviceList) {
-              for (var y in that.modalList) {
-                if (callback.deviceList[i].name.indexOf(that.modalList[y].value) != -1) {
-                  callback.deviceList[i].lineState = true;
-                }
-              }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _encoding = _interopRequireDefault(__webpack_require__(/*! @/utils/encoding.js */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return { searchState: false, searchStateOne: false, connectState: false, inputValue: '', devicesList: [], storageList: [], canvasWidth: 80, canvasHeight: 80 };}, onLoad: function onLoad() {this.BleTool.init();}, methods: { //断开连接
+    disconnect: function disconnect() {var that = this;this.BleTool.cancelBleConnect(function () {that.connectState = false;});}, blueStart: function blueStart() {var that = this;this.searchStateOne = true;if (that.searchState) {uni.showToast({ title: '搜索中，请稍后', icon: 'none' });return false;}this.BleTool.getBleState(function (state) {if (state) {that.searchState = true;that.BleTool.search(function (callback) {console.log('回调callback', callback);if (callback) {uni.showToast({ title: '搜索完成', icon: 'none' });for (var i in callback.deviceList) {for (var y in that.modalList) {if (callback.deviceList[i].name.indexOf(that.modalList[y].value) != -1) {callback.deviceList[i].lineState = true;}}}that.$nextTick(function () {that.devicesList = callback.deviceList;that.storageList = callback.storageList;
+              });
             }
-            that.$nextTick(function () {
-              that.devicesList = callback.deviceList;
-              that.storageList = callback.storageList;
-            });
-          }
+            that.searchState = false;
+          });
+        } else {
           that.searchState = false;
-        });
-      } else {
-        that.searchState = false;
-      }
-    });
-  },
-  blueStopSearch: function blueStopSearch() {
-    this.BleTool.stopSearchDevice();
-    this.searchState = false;
-  },
-  connectBle: function connectBle(item) {
-    var that = this;
-    this.BleTool.connectDevice(item, function (callback) {
-      console.log('连接的回调callback', callback);
-      if (callback) {
-        that.connectState = true;
-      } else {
-        that.connectState = false;
-      }
-    });
-  },
-  writeValue: function writeValue() {
-    var that = this;
-    that.BleTool.writeCharacteristicList(this.inputValue, function (callback) {
-      console.log('writeValue输入的回调callback', callback);
-      if (callback) {
-        uni.showToast({
-          title: '写入成功' });
+        }
+      });
+    },
+    blueStopSearch: function blueStopSearch() {
+      this.BleTool.stopSearchDevice();
+      this.searchState = false;
+    },
+    connectBle: function connectBle(item) {
+      var that = this;
+      this.BleTool.connectDevice(item, function (callback) {
+        console.log('连接的回调callback', callback);
+        if (callback) {
+          that.connectState = true;
+        } else {
+          that.connectState = false;
+        }
+      });
+    },
+    writeValue: function writeValue() {
+      var that = this;
+      var buff = new _encoding.default.TextEncoder(
+      'gb18030', {
+        NONSTANDARD_allowLegacyEncoding: true }).
+      encode(this.inputValue);
+      that.BleTool.writeCharacteristicList(buff, function (callback) {
+        console.log('writeValue输入的回调callback', callback);
+        if (callback) {
+          uni.showToast({
+            title: '写入成功' });
 
-      }
-    });
-  } }), _data$onLoad$onLoad$m);exports.default = _default;
+        }
+      });
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

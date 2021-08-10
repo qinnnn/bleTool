@@ -52,6 +52,7 @@
 </template>
 
 <script>
+	import encode from '@/utils/encoding.js';
 	export default {
 		data() {
 			return {
@@ -64,9 +65,6 @@
 				canvasWidth: 80,
 				canvasHeight: 80
 			}
-		},
-		onLoad() {
-
 		},
 		onLoad() {
 			this.BleTool.init();
@@ -135,7 +133,11 @@
 			},
 			writeValue: function() {
 				let that = this;
-				that.BleTool.writeCharacteristicList(this.inputValue, callback => {
+				let buff = new encode.TextEncoder(
+			        'gb18030', {
+			          NONSTANDARD_allowLegacyEncoding: true
+			        }).encode(this.inputValue)
+				that.BleTool.writeCharacteristicList(buff, callback => {
 					console.log('writeValue输入的回调callback', callback);
 					if (callback) {
 						uni.showToast({
