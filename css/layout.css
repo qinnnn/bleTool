@@ -1,0 +1,147 @@
+page{
+	background-color: #f8faff;
+}
+.layout {
+	width: 100%;
+	box-sizing: border-box;
+	height: 100vh;
+}
+.layout.bgcolor{
+	/* background-color: #f2f2f2; */
+}
+.layout-content {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	position: relative;
+	overflow: hidden;
+	padding-top: 1rpx;
+}
+.layout-cont {
+	position: relative;
+	padding: 0 32rpx;
+}
+.layout-content-hr {
+	padding-top: 1rpx;
+	margin-top: -1rpx;
+}
+.layout-footer {
+	box-sizing: border-box;
+	padding: 16rpx 32rpx;
+	padding-bottom: calc(constant(safe-area-inset-bottom) + 16rpx);
+	padding-bottom: calc(env(safe-area-inset-bottom) + 16rpx);
+	background-color: #fff;
+}
+.layout-footer.no-padding {
+	padding: 0;
+	padding-bottom: constant(safe-area-inset-bottom);
+	padding-bottom: env(safe-area-inset-bottom);
+}
+.layout-btn {
+	height: 80rpx;
+	line-height: 80rpx;
+	border-radius: 80rpx;
+	background-color: #0abbbb !important;
+	width: 100%;
+	font-size: 30rpx;
+	font-weight: 500;
+}
+.layout-btn::after {
+	border-color: #0abbbb;
+}
+.layout-scroll {
+	overflow: hidden;
+	width: 100%;
+}
+.layout-scroll::before{
+	content: "";
+	margin-top: -1rpx;
+	padding-top: 1rpx;
+	display: block;
+}
+.layout-header-modal {
+	box-sizing: border-box;
+	padding: 12rpx 32rpx;
+}
+
+.zbw-btn {
+	width: 100%;
+	background-color: #0ABBBB;
+	border-radius: 20rpx;
+	color: #fff;
+	height: 90rpx;
+	font-size: 32rpx;
+	line-height: 88rpx;
+}
+
+.zbw-btn::after {
+	border-color: #0ABBBB;
+	border-radius: 40rpx;
+}
+
+.zbw-btn-disabled {
+	background-color: #ddd !important;
+	color: #fff !important;
+}
+
+.zbw-btn-disabled::after {
+	border-color: #ddd !important;
+	color: #fff !important;
+}
+
+.zbw-btn-hover {
+	background-color: rgba(10,187,187,.8);
+}
+
+.zbw-btn-hover::after {
+	border-color: rgba(10,187,187,.8);
+}
+
+.zbw-btn-host.zbw-btn {
+	background-color: #fff;
+	color: #0ABBBB;
+}
+
+.zbw-btn-host.zbw-btn::after {
+	border-color: #0ABBBB;
+}
+
+.zbw-btn-host-hover {
+	background-color: #0ABBBB;
+	color: #fff;
+}
+
+.zbw-btn-host-hover::after {
+	border-color: #0ABBBB;
+}
+
+.zbw-btn-error.zbw-btn {
+	background-color: #fa5151;
+}
+
+.zbw-btn-error.zbw-btn::after {
+	border-color: #fa5151;
+}
+
+.zbw-btn-error-hover {
+	background-color: #ff8686;
+}
+
+.zbw-btn-error-hover::after {
+	border-color: #ff8686;
+}
+
+.zbw-btn-wrap {
+	display: flex;
+	width: 100%;
+}
+
+.zbw-btn-wrap .zbw-btn{
+	flex: 1;
+	margin-left: 26rpx;
+	width: auto;
+}
+
+.zbw-btn-wrap .zbw-btn:first-child{
+	margin-left: 0;
+}
